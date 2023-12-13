@@ -36,7 +36,9 @@ questions = [
     ("Який переклад слова magazine правельний?", 'журнал', 'магазин', 'ринок', 'мапа')
 ]
 
-cursor.executemany('''INSERT INTO question (question, answer, wrong_answer1, wrong_answer2, wrong_answer3) VALUES (?, ?, ?, ?, ?)''', questions)
+cursor.executemany('''INSERT INTO question (question, answer, wrong_answer1,
+ wrong_answer2, wrong_answer3) 
+ VALUES (?, ?, ?, ?, ?)''', questions)
 
 conn.commit()
 
