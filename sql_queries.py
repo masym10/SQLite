@@ -61,9 +61,13 @@ conn.commit()
 cursor.execute('''INSERT INTO quiz_content (quiz_id, question_id) VALUES (?, ?) ''', [1, 1])
 conn.commit()
 
-cursor.execute('''SELECT * FROM question, quiz_content 
-               WHERE question.id == quiz_content.question_id 
-               AND quiz_content.quiz_id == ?''', [1])
+def get_question(quiz_id, question_id):
+    conn = sqlite3.connect('Quiz.sqlite')
+    cursor = conn.cursor()
 
-data = cursor.fetchall()
-print(data)
+    cursor.execute('''SELECT question.question, question.answer FROM question, quiz_content 
+                   WHERE quiz_content.question_id == question_id
+                   AND question.id == ?
+                   AND quiz_content.quiz_id = ?''', [question_id, quiz_id])
+    data = cursor.fetchall()
+    return data
