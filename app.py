@@ -2,6 +2,10 @@ from flask import Flask, session
 from random import randint
 from sql_queries import get_question
 
+def start_quiz():
+    session["quiz"] = quiz.id
+    session{"last_question"}
+
 def index():
     session['counter'] = 0
     session['counter'] = randint(0, 1)
