@@ -69,5 +69,6 @@ def get_question(quiz_id, question_id):
                    WHERE quiz_content.question_id == question_id
                    AND question.id == ?
                    AND quiz_content.quiz_id = ?''', [question_id, quiz_id])
+
     data = cursor.fetchall()
     return data

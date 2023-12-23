@@ -10,7 +10,7 @@ def index():
 def test():
     data = get_question(session['counter'], session['counter'])
     session['counter'] += 1
-    return f'<h1>Test Number {session['counter']}</h1><br><a href= "/">return</a><br><h3>{str(data)}</h3>'
+    return f"<h1>Test Number {session['counter']}</h1><br><a href= '/'>return</a><br><h3>{str(data)}</h3>"
 
 def result():
     return "<h1>Result</h1>"
