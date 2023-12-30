@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='index.CSS')}}">
+</head>
+<body>
+    <form method="post", action="/index">
+        <h2>Test</h2>
+        <h3>{{question}}</h3>
+        <form>
+            <form method="post" action="test">
+                {% for ans in answer %}
+                <p><input type="radio" value="{{ans}}" name="quiz" > {{name}}</p>
+                {% endfor %}
+
+            </form>
+        </form>
+    </form>
+</body>
+</html>
