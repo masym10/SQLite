@@ -67,7 +67,8 @@ def get_question(quiz_id, question_id):
     conn = sqlite3.connect('Quiz.sqlite')
     cursor = conn.cursor()
 
-    cursor.execute('''SELECT question.question, question.answer 
+    cursor.execute('''SELECT quiz_content.id, question.question, question.answer, question.wrong_answer1, 
+                   question.wrong_answer2, question.wrong_answer3
                    FROM question, quiz_content 
                    WHERE quiz_content.question_id == question_id
                    AND question.id == ?
@@ -85,3 +86,24 @@ def get_quises():
     result = cursor.fetchall()
 
     return result
+
+def check_answer(question_id, answer):
+    query = sqlite3.connect('Quiz.sqlite')
+    cursor = conn.cursor()
+
+    cursor.execute('''
+                   Select question.answer FROM quiz_content, question WHERE quiz_content.id = ?
+                   AND quiz_content.question_id = question.id
+                   ''')
+    
+    #need open
+    cursor.execute(query, str(question_id))
+    result = cursor.fetchone()
+    #need close
+    if result is not None:
+        return False
+    else:
+        if result[0] == answer:
+            return True
+        else:
+            return False

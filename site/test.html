@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+    <link rel="stylesheet" href="test.css">
     <link rel="stylesheet" href="{{url_for('static', filename='test.CSS')}}">
 </head>
 <body>
     <b><u><h1>Quiz</h1></u></b>
-    <form method="post", action="/index">
+    <form method="post", action="/test">
         <div class="column">
             <h2>{{question}}:</h2>
-            <from>
+            <input value="{{question_id}}" name="question_id" type="hidden" />
+            <form method="post" action="test">
                 <div class="column">
-                <form method="post" action="test">
-                    {% for ans in answers %}
-                    <p><input type="radio" value="{{ans}}" name="quiz" > {{ans}}</p>
-                    {% endfor %}
-                    <button type="submit" class="button-9" role="button">Submit</button>
-                </form>
+                {% for ans in answers %}
+                <p><input type="radio" value="{{ans}}" name="quiz" > {{ans}}</p>
+                {% endfor %}
+                <button type="submit" class="button-9" role="button">Submit</button>
                 </div>
             </from>
         </div>
