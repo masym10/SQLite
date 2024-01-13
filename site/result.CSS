@@ -1,0 +1,18 @@
+h2{
+    font-family: "Arial";
+    color:white;
+    text-align: center;
+}
+p{
+    font-family: "Arial";
+    color: white;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(18, 25, 44);
+}
+
+a:link {
+    color:whitesmoke;
+  }

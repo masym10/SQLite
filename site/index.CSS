@@ -1,3 +1,26 @@
 h2{
-    color: red
+    font-family: 'Arial';
+    color:white;
+    text-align: center;
 }
+
+body{
+    background-color: rgb(18, 25, 44);
+}
+
+.column {
+    width: 80%;
+    margin: 20px;
+    padding: 10px;
+}
+
+.column2 {
+    width: 68%;
+    margin-left: auto;
+    margin-top: auto;
+    padding: 20px;
+}
+
+a:link {
+    color:whitesmoke;
+  }

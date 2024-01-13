@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="{{url_for('static', filename='index.CSS')}}">
 </head>
 <body>
-    <h2>Виберіть вікторину</h2>
-    <form method="post", action="/index">
-        <select name="quiz">
-        {% for id, name in quizz %}
-        <option value="{{id}}">{{ name }}</option>
-        {% endfor %}
-        </select>
-        <button type="submit">Start Test</button>
-
-    </form>
+    <div class="column">
+        <h2><u>Choose queiz</u></h2>
+    </div>
+    <div class="column2">
+        <form method="post", action="/index">
+            <select name="quiz">
+                {% for id, name in quizz %}
+                <option value="{{id}}">{{ name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Start Test</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -14,12 +14,12 @@ def index():
 def test():
     if request.method == "POST":
         session['counter'] += 1
-    question = ""
-    answers = ['qwe', 'qwe2', 'qwe3', 'qwe4']
+    question = get_question(session["quiz_id"], session["question_id"])
+    answers = ['a', 'b', 'c', 'd']
     return render_template("test.html", question=question, answers=answers)
 
 def result():
-    return "<h1>Result</h1>"
+    return render_template("result.html")
 
 app = Flask(__name__, template_folder='', static_folder='')
 app.config["SECRET_KEY"] = "qweqwe123"
@@ -31,4 +31,4 @@ app.add_url_rule('/test', 'test', test, methods=["POST", "GET"])
 
 app.add_url_rule('/result', 'result', result)
 
-app.run()
+app.run(debug=False, port=5007)

@@ -33,7 +33,9 @@ conn.commit()
 
 questions = [
     ("Який переклад слова blue правельний?", 'синій', 'блуе', 'щось на англійській', 'незадоволення'),
-    ("Який переклад слова magazine правельний?", 'журнал', 'магазин', 'ринок', 'мапа')
+    ("Який переклад слова magazine правельний?", 'журнал', 'магазин', 'ринок', 'мапа'),
+    ("За якийсь час Земля робить один оберт навколо своєї осі?", "12 місяців", "12 годин", "24 години", "30 днів"),
+    ("Яків в космосу бувають діри?", "чорні", "білі", "блакитні", "червоні")
 ]
 
 cursor.executemany('''INSERT INTO question (question, answer, wrong_answer1,
@@ -65,7 +67,8 @@ def get_question(quiz_id, question_id):
     conn = sqlite3.connect('Quiz.sqlite')
     cursor = conn.cursor()
 
-    cursor.execute('''SELECT question.question, question.answer FROM question, quiz_content 
+    cursor.execute('''SELECT question.question, question.answer 
+                   FROM question, quiz_content 
                    WHERE quiz_content.question_id == question_id
                    AND question.id == ?
                    AND quiz_content.quiz_id = ?''', [question_id, quiz_id])

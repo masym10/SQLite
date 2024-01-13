@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='index.CSS')}}">
+    <title>Test</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='test.CSS')}}">
 </head>
 <body>
+    <b><u><h1>Quiz</h1></u></b>
     <form method="post", action="/index">
-        <h2>Test</h2>
-        <h3>{{question}}</h3>
-        <form>
-            <form method="post" action="test">
-                {% for ans in answer %}
-                <p><input type="radio" value="{{ans}}" name="quiz" > {{name}}</p>
-                {% endfor %}
-
-            </form>
-        </form>
+        <div class="column">
+            <h2>{{question}}:</h2>
+            <from>
+                <div class="column">
+                <form method="post" action="test">
+                    {% for ans in answers %}
+                    <p><input type="radio" value="{{ans}}" name="quiz" > {{ans}}</p>
+                    {% endfor %}
+                    <button type="submit" class="button-9" role="button">Submit</button>
+                </form>
+                </div>
+            </from>
+        </div>
     </form>
+</body>
 </body>
 </html>
